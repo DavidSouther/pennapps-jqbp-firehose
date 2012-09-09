@@ -3,10 +3,15 @@
 	<title>Newswire Firehose</title>
 	<script type="text/javascript" src="vendors/jquery/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="js/jqbp.js"></script>
+	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.css" />
 </head>
 <body>
 	<h1><img src="img/nytlogo379x64.gif" /> Firehose</h1>
-	<div id="firehose" />
+	<div id="firehose" class="row">
+		<div id="leader" class="span5"></div>
+		<div id="highlights" class="span4"></div>
+		<div id="stories" class="span3"></div>
+	</div>
 
 	<div id="templates" style="display:none;">
 		<div id="news_item">

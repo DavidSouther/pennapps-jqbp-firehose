@@ -6,14 +6,37 @@ jQuery(function($){
 		}
 	});
 
-	function showResult(i, result){
-		var created = new Date(result.created_date);
-		var $template = $($("#templates #news_item").clone());
-		$template.find(".title a").text(result.title).attr("href", result.url);
-		$template.find(".byline").text(result.byline);
-		$template.find(".abstract").text(result.abstract);
-		$template.find(".created").text(created.toLocaleString());
-		$template.appendTo("#firehose");
-	}
+	var showResult = function(i, result) {
+		var $story = showResult.buildStory(result);
+		if(i===0) {
+			showResult.leader($story);
+		} else if (i < 4) {
+			showResult.highlight($story);
+		} else if (i < 9) {
+			showResult.story($story);
+		}
+	};
 
+	$.extend(showResult, {
+		buildStory: function(story){
+			var created = new Date(story.created_date);
+			var $story = $($("#templates #news_item").clone()).attr("id", null);
+			$story.find(".title a").text(story.title).attr("href", story.url);
+			$story.find(".byline").text(story.byline);
+			$story.find(".abstract").text(story.abstract);
+			$story.find(".created").text(created.toLocaleString());
+			return $story;
+		},
+		leader: function($story) {
+			$story.appendTo("#leader");
+		},
+		highlight: function($story){
+			$story.appendTo("#highlights");
+		},
+		story: function($story){
+			$story
+				.find(".abstract").toggle(false).end()
+				.appendTo("#stories");
+		}
+	});
 }(jQuery));
