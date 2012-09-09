@@ -4,6 +4,7 @@
 	<script type="text/javascript" src="vendors/jquery/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="js/jqbp.js"></script>
 	<link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/jqbp.css" />
 </head>
 <body>
 	<h1><img src="img/nytlogo379x64.gif" /> Firehose</h1>
@@ -14,10 +15,12 @@
 	</div>
 
 	<div id="templates" style="display:none;">
-		<div id="news_item">
-			<span class="title"><a>Title</a></span>
-			<span class="byline">Byline</span>
-			<span class="created">Created</span>
+		<div id="news_item" class="news_item">
+			<span class="title"><a target="_blank">Title</a></span>
+			<div class="subtitle">
+				<span class="byline">Byline</span>
+				<span class="created">Created</span>
+			</div>
 			<span class="abstract">Abstract</span>
 		</div>
 	</div>

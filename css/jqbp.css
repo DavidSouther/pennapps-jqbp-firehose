@@ -1,0 +1,41 @@
+#firehose {
+	margin: 0 auto;
+}
+
+.news_item:not(:last-child) {
+	padding-bottom: 10px;
+	border-bottom: 1px solid lightgray;
+	margin-bottom: 10px;
+}
+
+.title {
+	font-size: 1.2em;
+}
+
+.subtitle {
+	font-size: .8em;
+}
+
+.byline { }
+
+.created {
+	color: gray;
+}
+
+.abstract { }
+
+.image > img {
+	float: left;
+	padding:1px;
+	border:1px solid #021a40;
+	margin-right: 4px;
+}
+
+.image .copyright:before {
+	content: "\00A9";
+}
+
+.image .copyright {
+	font-size: .8em;
+	display: block;
+}
