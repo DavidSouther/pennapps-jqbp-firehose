@@ -9,7 +9,7 @@ jQuery(function($){
 	var showResult = function(i, result) {
 		var $story = showResult.buildStory(result);
 		if(i===0) {
-			showResult.leader($story);
+			showResult.leader($story, result.multimedia);
 		} else if (i < 4) {
 			showResult.highlight($story);
 		} else if (i < 9) {
@@ -27,7 +27,12 @@ jQuery(function($){
 			$story.find(".created").text(created.toLocaleString());
 			return $story;
 		},
-		leader: function($story) {
+		leader: function($story, multimedia) {
+			if(multimedia.length) {
+				multimedia = multimedia.shift();
+				$story.find(".subtitle").after(caption(multimedia));
+			}
+
 			$story.appendTo("#leader");
 		},
 		highlight: function($story){
@@ -39,4 +44,17 @@ jQuery(function($){
 				.appendTo("#stories");
 		}
 	});
+
+	var caption = function(multimedia){
+		var $caption = $();
+		if(multimedia.type === "image") {
+			$caption = $($("#templates > .multimedia > .image").clone());
+			$caption
+				.find("img").attr('src', multimedia.url).end()
+				.find(".caption").text(multimedia.caption).end()
+				.find(".copyright").text(multimedia.copyright).end();
+		}
+		return $caption;
+	};
+
 }(jQuery));
