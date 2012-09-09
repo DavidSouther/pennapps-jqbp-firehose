@@ -1,3 +1,7 @@
 jQuery(function($){
-	console.log("Loaded...");
+
+	$.ajax('newswire.php', {dataType: "xml"}).then(function(data){
+		console.log(data);
+	});
+
 }(jQuery));
