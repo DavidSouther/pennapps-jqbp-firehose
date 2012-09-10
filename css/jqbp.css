@@ -22,7 +22,10 @@
 	color: gray;
 }
 
-.abstract { }
+.news_item .image {
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 4px;
+}
 
 .image > img {
 	float: left;
